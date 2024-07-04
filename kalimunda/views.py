@@ -3,6 +3,13 @@ from . models import Medicine
 
 # Create your views here.
 
+
+def add_item(request):
+    return render(request, 'add_med.html')
+
+
+
+
 def about(request):
     return render(request, 'about.html')
 
