@@ -1,10 +1,20 @@
-from django.shortcuts import render
+from django.shortcuts import render, redirect
 from . models import Medicine
 
 # Create your views here.
 
 
 def add_item(request):
+    if request.method == 'POST':
+        name = request.POST['name']
+        # category = request.POST['category']
+        quantity = request.POST['quantity']
+        price = request.POST['price']
+
+        new_med = Medicine(name=name, quantity=quantity, price=price)
+        new_med.save()
+        return redirect('products')
+    
     return render(request, 'add_med.html')
 
 

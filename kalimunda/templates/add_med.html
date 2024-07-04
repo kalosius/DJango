@@ -8,22 +8,31 @@
     <div class="row">
         <div class="col-md-6 offset-md-3">
             <center><h1>New Item</h1></center>
-            <form>
+
+            <form method="POST">
+                {% csrf_token %}
                 <div class="mb-3">
-                    <label for="" class="form-label">Item Name</label>
-                    <input type="text" class="form-control" >
+                    <label for="name" class="form-label">Item Name</label>
+                    <input type="text" class="form-control" name="name" >
+                </div>
+
+                <!-- <div class="mb-3">
+                    <label for="category" class="form-label">Category</label>
+                    <select id="category" name="category" class="form-select">
+                        <option value="">Select a category...</option>
+                        <option value="Pain Killers">Pain Killers</option>
+                        <option value="Contraceptives">Contraceptives</option>
+                    </select>
+                </div> -->
+
+
+                <div class="mb-3">
+                    <label for="quantity" class="form-label">Quantity</label>
+                    <input type="number" class="form-control" name="quantity">
                 </div>
                 <div class="mb-3">
-                    <label for="" class="form-label">Category</label>
-                    <input type="text" class="form-control">
-                </div>
-                <div class="mb-3">
-                    <label for="" class="form-label">Quantity</label>
-                    <input type="number" class="form-control">
-                </div>
-                <div class="mb-3">
-                    <label for="" class="form-label">Price</label>
-                    <input type="number" class="form-control">
+                    <label for="price" class="form-label">Price</label>
+                    <input type="number" class="form-control" name="price">
                 </div>
                  
                 <br>
@@ -38,3 +47,5 @@
 
 
 {% endblock %}
+
+
