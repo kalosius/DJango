@@ -1,21 +1,40 @@
 from django.shortcuts import render, redirect
-from . models import Medicine
+from . models import Medicine, Category
+from django.contrib import messages
+from . forms import MedicineForm
 
 # Create your views here.
 
 
 def add_item(request):
-    if request.method == 'POST':
-        name = request.POST['name']
-        # category = request.POST['category']
-        quantity = request.POST['quantity']
-        price = request.POST['price']
+    form = MedicineForm()
+    if request.method == "POST":
+        form = MedicineForm(request.POST)
+        if form.is_valid():
+            form.save()
+            messages.success(request, "Item Added Successfully!!!")
+            return redirect('products')
+        else:
+            messages.success(request, "Invalid Input!!!")
+            return redirect('add_item')
 
-        new_med = Medicine(name=name, quantity=quantity, price=price)
-        new_med.save()
-        return redirect('products')
+    return render(request, 'add_med.html', {"form":form})
+
+
+    # html logic
+    # if request.method == 'POST':
+    #     name = request.POST['name']
+    #     # category = request.POST['category']
+    #     quantity = request.POST['quantity']
+    #     price = request.POST['price']
+
     
-    return render(request, 'add_med.html')
+    #     new_med = Medicine(name=name, quantity=quantity, price=price)
+    #     new_med.save()
+    #     messages.success(request, 'Item Added Successfully!')
+    #     return redirect('products')
+    
+    # return render(request, 'add_med.html')
 
 
 
