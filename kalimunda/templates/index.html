@@ -1,11 +1,51 @@
 {% extends 'base.html' %}
 {% block content %}
 
+{% for message in messages %}
+    <div class="alert alert-success alert-dismissible fade show" role="alert">
+        <strong>{{ message }}</strong>
+        <button type="button" class="btn-close" data-bs-dismiss="alert" aria-label="Close"></button>
+    </div>
+    {% endfor %}
+
+<div id="carouselExampleIndicators" class="carousel slide" style="height: 200px; overflow: hidden;">
+    <div class="carousel-indicators">
+        <button type="button" data-bs-target="#carouselExampleIndicators" data-bs-slide-to="0" class="active" aria-current="true" aria-label="Slide 1"></button>
+        <button type="button" data-bs-target="#carouselExampleIndicators" data-bs-slide-to="1" aria-label="Slide 2"></button>
+        <button type="button" data-bs-target="#carouselExampleIndicators" data-bs-slide-to="2" aria-label="Slide 3"></button>
+    </div>
+    <div class="carousel-inner">
+        <div class="carousel-item active">
+            <img src="https://i.pinimg.com/564x/f9/e2/99/f9e299499000906e44c51b67f52a9a9b.jpg" class="d-block w-100" style="height: 200px; object-fit: cover;" alt="...">
+        </div>
+        <div class="carousel-item">
+            <img src="https://i.pinimg.com/736x/19/2a/2e/192a2e46b18cd10feed8e09d926619e8.jpg" class="d-block w-100" style="height: 200px; object-fit: cover;" alt="...">
+        </div>
+        <div class="carousel-item">
+            <img src="https://i.pinimg.com/736x/d3/48/fd/d348fdd620cf3127e2778253400c703b.jpg" class="d-block w-100" style="height: 200px; object-fit: cover;" alt="...">
+        </div>
+    </div>
+    <button class="carousel-control-prev" type="button" data-bs-target="#carouselExampleIndicators" data-bs-slide="prev">
+        <span class="carousel-control-prev-icon" aria-hidden="true"></span>
+        <span class="visually-hidden">Previous</span>
+    </button>
+    <button class="carousel-control-next" type="button" data-bs-target="#carouselExampleIndicators" data-bs-slide="next">
+        <span class="carousel-control-next-icon" aria-hidden="true"></span>
+        <span class="visually-hidden">Next</span>
+    </button>
+</div>
 
 
+<div class="container">
+    <br>
+    <center><h1>Welcome To DR.WuHaYu Pharmacy </h1></center>
 
-<h1></h1>
+<p>Lorem ipsum dolor sit amet consectetur adipisicing elit. Assumenda numquam, ab voluptate, eveniet, aliquid quae consequatur nostrum facere explicabo non amet et ad? Tenetur nam dolorum quaerat reprehenderit, eius ratione?</p>
+<p>Lorem ipsum dolor sit amet consectetur adipisicing elit. Assumenda numquam, ab voluptate, eveniet, aliquid quae consequatur nostrum facere explicabo non amet et ad? Tenetur nam dolorum quaerat reprehenderit, eius ratione?</p>
+<p>Lorem ipsum dolor sit amet consectetur adipisicing elit. Assumenda numquam, ab voluptate, eveniet, aliquid quae consequatur nostrum facere explicabo non amet et ad? Tenetur nam dolorum quaerat reprehenderit, eius ratione?</p>
 
+<a href="{% url 'products' %}" class="btn btn-secondary">View Products</a>
+</div>
 
 
 
