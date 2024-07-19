@@ -1,0 +1,23 @@
+{% extends 'base.html' %}
+{% block content %}
+
+
+<br>
+<div class="container">
+    
+{% if searched %}
+<h1>You searched for {{ searched }}</h1>
+<br>
+    {% for medicine in item %}
+    <a class="page-link" href="{% url 'view_item' medicine.id %}"> {{ medicine }}</a>
+    {% endfor %}
+
+{% else %}
+
+<h1>Hey! You forgot to search  for an item</h1>
+
+
+{% endif %}
+
+</div>
+{% endblock %}

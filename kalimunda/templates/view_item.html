@@ -1,0 +1,39 @@
+{% extends 'base.html' %}
+{% block content %}
+
+<style>
+    .card-body ul li{
+        list-style-type: none;
+    }
+</style>
+
+<br><br>
+<div class="container">
+    <div class="card text-center">
+        <div class="card-header">
+           <strong>{{ item.name }}</strong> 
+        </div>
+        <div class="card-body">
+            <ul>
+           <li>Quantity: {{ item.quantity }}</li> 
+           <li>Price: {{ item.price }} shs.</li> 
+           <li>Category: {{ item.category }}</li> 
+           <li></li>  
+        </ul>
+        </div>
+
+        {% if user.is_superuser %}
+        <div class="card-footer text-body-secondary">
+            <a class="btn btn-outline-primary" href="{% url 'edit_item' item.id %}">Edit</a>
+            <a href="{% url 'delete' item.id %}" type="submit" class="btn btn-outline-danger">Delete</a>
+        </div>
+        {% endif %}
+    </div>
+</div>
+
+
+
+{% endblock %}
+    
+
+
