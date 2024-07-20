@@ -1,20 +1,22 @@
 {% extends 'base.html' %}
+{% load crispy_forms_tags %}
 {% block content %}
 
 <div class="container">
-    
-<h1>Edit Medicine </h1>
-
-{{ item }}
-<br><br>
-
-    <form action="" method="POST">
-        {% csrf_token %}
-        {{ form.as_p }}
-        <br>
-        <button type="submit" class="btn btn-secondary">Update</button>
-    </form>
-
+    <br>    
+    <div class="card text-center">
+        <div class="card-header">
+            <strong>Edit {{ item }}</strong> 
+        </div>
+        <div class="card-body col-md-6 offset-md-3">
+            <form action="" method="POST">
+                {% csrf_token %}
+                {{ form|crispy }}
+                <br>
+                <button type="submit" class="btn btn-secondary" style="padding-left: 40%; padding-right: 40%;">Update</button>
+            </form>
+        </div>
+    </div>
 </div>
 
 {% endblock %}
